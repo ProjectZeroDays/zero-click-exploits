@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Cybersecurity Framework</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .contact-header {
+            background-color: #007bff;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .contact-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .contact-header p {
+            font-size: 1.2rem;
+        }
+        .contact-form {
+            padding: 50px 0;
+        }
+        .contact-details {
+            background-color: #f0f0f0;
+            padding: 30px;
+            text-align: center;
+        }
+        .contact-details h4 {
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contact Header -->
+    <section class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Have questions? We're here to help. Reach out to us anytime.</p>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form action="/submit-contact" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section class="contact-details">
+        <div class="container">
+            <h4>Our Contact Information</h4>
+            <p>Email: contact@cyberframework.com</p>
+            <p>Phone: +1 (800) 123-4567</p>
+            <p>Office: 123 Cybersecurity Ave, Washington, DC</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Cybersecurity Framework. All rights reserved.</p>
+        <p><a href="#" style="color: #fff;">Terms of Service</a> | <a href="#" style="color: #fff;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
