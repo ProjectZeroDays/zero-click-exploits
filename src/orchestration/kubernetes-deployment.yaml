@@ -1,0 +1,269 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-threat-detection
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ai-threat-detection
+  template:
+    metadata:
+      labels:
+        app: ai-threat-detection
+    spec:
+      containers:
+      - name: ai-threat-detection
+        image: ai-threat-detection:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MODEL_PATH
+          value: "/app/ml-models/anomaly-detection-model.pkl"
+        - name: SIGNATURE_MODEL_PATH
+          value: "/app/ml-models/signature-based-model.pkl"
+        volumeMounts:
+        - name: ai-threat-detection-volume
+          mountPath: /app
+      volumes:
+      - name: ai-threat-detection-volume
+        hostPath:
+          path: /path/to/ai-threat-detection
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compliance-management
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: compliance-management
+  template:
+    metadata:
+      labels:
+        app: compliance-management
+    spec:
+      containers:
+      - name: compliance-management
+        image: compliance-management:latest
+        ports:
+        - containerPort: 8081
+        env:
+        - name: REGULATIONS_PATH
+          value: "/app/regulations"
+        volumeMounts:
+        - name: compliance-management-volume
+          mountPath: /app
+      volumes:
+      - name: compliance-management-volume
+        hostPath:
+          path: /path/to/compliance-management
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-management
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: user-management
+  template:
+    metadata:
+      labels:
+        app: user-management
+    spec:
+      containers:
+      - name: user-management
+        image: user-management:latest
+        ports:
+        - containerPort: 8082
+        env:
+        - name: USER_DB_PATH
+          value: "/app/user-database.json"
+        volumeMounts:
+        - name: user-management-volume
+          mountPath: /app
+      volumes:
+      - name: user-management-volume
+        hostPath:
+          path: /path/to/user-management
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: incident-response
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: incident-response
+  template:
+    metadata:
+      labels:
+        app: incident-response
+    spec:
+      containers:
+      - name: incident-response
+        image: incident-response:latest
+        ports:
+        - containerPort: 8083
+        volumeMounts:
+        - name: incident-response-volume
+          mountPath: /app
+      volumes:
+      - name: incident-response-volume
+        hostPath:
+          path: /path/to/incident-response
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reporting
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reporting
+  template:
+    metadata:
+      labels:
+        app: reporting
+    spec:
+      containers:
+      - name: reporting
+        image: reporting:latest
+        ports:
+        - containerPort: 8084
+        volumeMounts:
+        - name: reporting-volume
+          mountPath: /app
+      volumes:
+      - name: reporting-volume
+        hostPath:
+          path: /path/to/reporting
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logging
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: logging
+  template:
+    metadata:
+      labels:
+        app: logging
+    spec:
+      containers:
+      - name: logging
+        image: logging:latest
+        ports:
+        - containerPort: 8085
+        volumeMounts:
+        - name: logging-volume
+          mountPath: /app
+      volumes:
+      - name: logging-volume
+        hostPath:
+          path: /path/to/logging
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: monitoring
+  template:
+    metadata:
+      labels:
+        app: monitoring
+    spec:
+      containers:
+      - name: monitoring
+        image: monitoring:latest
+        ports:
+        - containerPort: 8086
+        volumeMounts:
+        - name: monitoring-volume
+          mountPath: /app
+      volumes:
+      - name: monitoring-volume
+        hostPath:
+          path: /path/to/monitoring
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notification
+  template:
+    metadata:
+      labels:
+        app: notification
+    spec:
+      containers:
+      - name: notification
+        image: notification:latest
+        ports:
+        - containerPort: 8087
+        volumeMounts:
+        - name: notification-volume
+          mountPath: /app
+      volumes:
+      - name: notification-volume
+        hostPath:
+          path: /path/to/notification
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-integration
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-integration
+  template:
+    metadata:
+      labels:
+        app: api-integration
+    spec:
+      containers:
+      - name: api-integration
+        image: api-integration:latest
+        ports:
+        - containerPort: 8088
+        volumeMounts:
+        - name: api-integration-volume
+          mountPath: /app
+      volumes:
+      - name: api-integration-volume
+        hostPath:
+          path: /path/to/api-integration
