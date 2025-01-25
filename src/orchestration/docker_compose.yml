@@ -1,0 +1,112 @@
+version: '3.8'
+
+services:
+  ai-threat-detection:
+    image: ai-threat-detection:latest
+    build:
+      context: ../core-modules/ai-threat-detection/
+    ports:
+      - "5000:5000"
+    environment:
+      - FERNET_KEY=${FERNET_KEY}
+    volumes:
+      - ./ml-models:/app/ml-models
+    networks:
+      - backend
+
+  compliance-management:
+    image: compliance-management:latest
+    build:
+      context: ../core-modules/compliance-management/
+    ports:
+      - "5001:5001"
+    environment:
+      - FERNET_KEY=${FERNET_KEY}
+    volumes:
+      - ./regulations:/app/regulations
+    networks:
+      - backend
+
+  user-management:
+    image: user-management:latest
+    build:
+      context: ../core-modules/user-management/
+    ports:
+      - "5002:5002"
+    environment:
+      - FERNET_KEY=${FERNET_KEY}
+    volumes:
+      - ./user-database.json:/app/user-database.json
+    networks:
+      - backend
+
+  incident-response:
+    image: incident-response:latest
+    build:
+      context: ../core-modules/incident-response/
+    ports:
+      - "5003:5003"
+    environment:
+      - FERNET_KEY=${FERNET_KEY}
+    volumes:
+      - ./playbooks:/app/playbooks
+    networks:
+      - backend
+
+  reporting:
+    image: reporting-service:latest
+    build:
+      context: ../core-modules/reporting/
+    ports:
+      - "5004:5004"
+    volumes:
+      - ./templates:/app/templates
+      - ./reports:/app/reports
+    networks:
+      - backend
+
+  logging:
+    image: logging-service:latest
+    build:
+      context: ../support-modules/logging/
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - backend
+
+  monitoring:
+    image: monitoring-agent:latest
+    build:
+      context: ../support-modules/monitoring/
+    volumes:
+      - ./metrics:/app/metrics
+    networks:
+      - backend
+
+  notification:
+    image: notification-service:latest
+    build:
+      context: ../support-modules/notification/
+    volumes:
+      - ./templates:/app/templates
+    networks:
+      - backend
+    environment:
+      - NOTIFICATION_CONFIG_PATH=/app/notification_config.json
+    volumes:
+      - ./notification_config.json:/app/notification_config.json
+
+  api-integration:
+    image: api-integration:latest
+    build:
+      context: ../support-modules/api-integration/
+    volumes:
+      - ./api-keys.json:/app/api-keys.json
+    networks:
+      - backend
+    environment:
+      - API_KEY_PATH=/app/api-keys.json
+
+networks:
+  backend:
+    driver: bridge
