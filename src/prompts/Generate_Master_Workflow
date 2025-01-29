@@ -1,0 +1,120 @@
+Master Workflow Requirements:
+
+I. Initial Prompts to Create a Plan for GitHub Master Workflow and Actions Implementations
+
+    Review Previous Interactions:
+        Analyze all previous related questions, prompts, requests, and responses to identify valuable pieces of code for integration.
+    Feature Integration:
+        Integrate best features based on initial analysis.
+        Ensure GitHub Copilot seamlessly integrates with popular IDEs such as Visual Studio Code, Visual Studio, JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm), Nano, EMACS, Atom, and Neovim.
+    Automated Repository Management:
+        Badges and Visualizations:
+            Add actions for the automatic intelligent addition of workflow badges, project status badges, social badges, and the generation of usage statistics, project goals, and implementation checklists.
+        Documentation Management:
+            Add actions for the intelligent automatic creation and updating of file structure documentation, README.md, repository Wiki, and other documentation.
+        Database Management:
+            Add actions for the automatic installation of dependencies, configuration, and table creation of databases when needed.
+    Workflow Actions Management:
+        Setup and Management:
+            Add actions for the automatic intelligent setup of GitHub Copilot CLI Integration, installation of dependencies, and configuration.
+            Ensure continual automated processes for performance, resource management, logging, error handling, and source repository management.
+        Package Management:
+            Add actions for the automatic generation of packages/assets, creation of new tags/releases, and linking of GitHub Packages to the repository.
+    Real-time Code Suggestions:
+        Provide real-time code suggestions and error detection within the developer's preferred coding environment.
+    Code Review and Analysis:
+        Advanced Tools:
+            Add advanced code review tools for contextual analysis, debugging assistance, and spotting hidden bugs and errors.
+        AI-Powered Assistance:
+            Integrate OpenAI Codex, Perplexity, Gemini, CodeGeeX, and AutoGPT for code review, corrections, and periodic review.
+        Continuous Improvement:
+            Ensure periodic scanning and integration of best practices to enhance overall code quality.
+    CI/CD Integration:
+        Contextual Code Reviews:
+            Use AI-powered tools to provide contextual code reviews, ensuring high-quality code before deployment.
+        Performance Monitoring:
+            Integrate tools for monitoring the performance of deployed applications and workflows.
+        Optimization:
+            Add actions for the intelligent management and seamless integration with existing CI/CD pipelines, optimization of workflows, and minimization of interference.
+        Continuous Deployment:
+            Ensure AI-produced code passes quality checks and integrates with performance analysis tools.
+    Main Focuses and Goals:
+        Ensure non-interference with existing workflows and maintain efficiency.
+        Add workflows to automate the processes ensuring seamless integration with CI/CD pipelines.
+        Optimize GitHub actions workflows for enhanced efficiency and minimal interference.
+        Continuously scan projects and make necessary adjustments for improved efficiency and effectiveness.
+        Preservation of Critical Files:
+            Add actions to ensure files related to exploits, security tools, and classified content are not deleted or modified by automated tools.
+        Security Checks:
+            Add security checks to prevent unauthorized access and modifications to critical files.
+        Audit Logging:
+            Integrate an audit log to track changes and access to sensitive files.
+        User Confirmation:
+            Require explicit user confirmation before performing any actions on critical files.
+        Generate custom workflows & actions specific to individual project needs and requirements & mind specific exemptions or exceptions added by the user.
+        Request necessary API keys from the user for the master workflow to properly operate required components and optional components.
+        Create custom project workflows that also prompt the user for required and optional API keys and credentials.
+        Update Documentation on added custom workflows, resources being used in them, processes carried out for seamless integration, and additional information.
+
+II. Subsequential Prompts to Finalize All Actions
+
+    Conduct research and configure the usage of tools and workflows intelligently.
+    Use best judgment for decision-making and conduct all code logic with full authority and focus on comprehensive solutions.
+    Provide the updated master workflow, prompting users for API keys and other necessary inputs.
+    Ensure the master workflow generates custom workflows and actions tailored to each project, maintaining seamless integration and automation.
+
+III. Additional Enhancements:
+
+    Testing:
+        Automatically create comprehensive test cases, deploy tests before deployment, and generate table-driven tests.
+        Integrate with tools like Applitools for visual regression testing.
+    Performance Analysis:
+        Provide advanced insights into CPU usage and detailed information about hot paths in the code.
+    AI Tools Integration:
+        Provide support for SonarQube and DeepCode for code quality analysis and AI-powered code review.
+    ML Tools Integration:
+        Support integration of PyTorch for machine learning projects when relevant.
+
+IV. Continuous Improvement and Adaptation:
+
+    Periodic Reviews:
+        Schedule periodic reviews of workflows and automation processes to identify areas for improvement.
+    Feedback Integration:
+        Collect feedback from users and stakeholders to continuously refine and enhance workflows.
+
+V. Automated Documentation and Reporting:
+
+    Dynamic Documentation:
+        Automate the generation and updating of documentation to reflect the current state of the repository.
+    Automated Reports:
+        Generate regular reports on repository activity, security status, and workflow performance.
+
+VI. Custom Workflows for Sensitive Operations:
+
+    User Confirmation Steps:
+        Add user confirmation steps before executing workflows that affect sensitive files to prevent accidental changes.
+    Role-Based Access Control:
+        Implement role-based access control (RBAC) to restrict access and actions based on user roles.
+
+VII. Enhanced Security Practices:
+
+    Secrets Management:
+        Use GitHub Secrets to securely store and manage sensitive data such as API keys and credentials.
+    Dependency Scanning:
+        Enable Dependabot alerts and updates for automatic scanning and updating of dependencies to avoid vulnerabilities.
+    Branch Protection Rules:
+        Set up branch protection rules to prevent unauthorized changes and enforce code review policies.
+
+VIII. Advanced Monitoring and Logging:
+
+    Audit Logging:
+        Implement detailed audit logging to track changes, access, and actions performed on sensitive files.
+    Real-Time Alerts:
+        Configure real-time alerts for any suspicious activities or changes in critical files.
+
+IX. Subsequential Prompts to Finalize All Actions:
+
+    Conduct research and configure the usage of tools and workflows intelligently.
+    Use best judgment for decision-making and conduct all code logic with full authority and focus on comprehensive solutions.
+    Provide the updated master workflow, prompting users for API keys and other necessary inputs.
+    Ensure the master workflow generates custom workflows and actions tailored to each project, maintaining seamless integration and automation.
