@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Chatbot Interface</title>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Chatbot Interface</h1>
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Type your message..." autofocus>
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="startVoiceRecognition()">🎤 Voice Input</button>
+        <input type="file" id="image-upload" accept="image/*" onchange="handleImageUpload()" />
+        <input type="file" id="doc-upload" accept=".txt,.md,.pdf" onchange="handleDocUpload()" />
+    </div>
+
+    <h2>Network Scan and Vulnerability Test</h2>
+    <h2>Setup API Keys</h2>
+    <form id="apiKeysForm" method="POST" action="/setup_api_keys">
+        <div>
+            <h3>Gemini API Keys</h3>
+            <input type="text" name="gemini_key_1" placeholder="Enter Gemini API Key #1" required>
+            <input type="text" name="gemini_key_2" placeholder="Enter Gemini API Key #2">
+            <input type="text" name="gemini_key_3" placeholder="Enter Gemini API Key #3">
+            <input type="text" name="gemini_key_4" placeholder="Enter Gemini API Key #4">
+            <input type="text" name="gemini_key_5" placeholder="Enter Gemini API Key #5">
+        </div>
+        <div>
+            <h3>OpenAI Codex API Keys</h3>
+            <input type="text" name="open_codex_key_1" placeholder="Enter Open Codex API Key #1" required>
+            <input type="text" name="open_codex_key_2" placeholder="Enter Open Codex API Key #2">
+            <input type="text" name="open_codex_key_3" placeholder="Enter Open Codex API Key #3">
+            <input type="text" name="open_codex_key_4" placeholder="Enter Open Codex API Key #4">
+            <input type="text" name="open_codex_key_5" placeholder="Enter Open Codex API Key #5">
+        </div>
+        <div>
+            <h3>OpenAI 3.5 API Keys</h3>
+            <input type="text" name="openai_key_1" placeholder="Enter OpenAI 3.5 API Key #1" required>
+            <input type="text" name="openai_key_2" placeholder="Enter OpenAI 3.5 API Key #2">
+            <input type="text" name="openai_key_3" placeholder="Enter OpenAI 3.5 API Key #3">
+            <input type="text" name="openai_key_4" placeholder="Enter OpenAI 3.5 API Key #4">
+            <input type="text" name="openai_key_5" placeholder="Enter OpenAI 3.5 API Key #5">
+        </div>
+        <div>
+            <h3>Google AI Studio API Key</h3>
+            <input type="text" name="google_ai_studio_key" placeholder="Enter Google AI Studio API Key" required>
+        </div>
+        <button type="submit">Submit API Keys</button>
+    </form>
+
+    <h2>Setup Messaging Service</h2>
+    <form id="messagingServiceForm" method="POST" action="/setup_messaging_service">
+        <select name="service_selection" onchange="showServiceInputs(this.value)">
+            <option value="">Select a Messaging Service</option>
+            <option value="1">Google Voice</option>
+            <option value="2">Twilio</option>
+            <option value="3">Textbelt</option>
+        </select>
+        <div id="googleVoiceInputs" style="display: none;">
+            <input type="text" name="gv_client_id" placeholder="Google Voice API Client ID" required>
+            <input type="text" name="gv_client_secret" placeholder="Google Voice API Client Secret" required>
+        </div>
+        <div id="twilioInputs" style="display: none;">
+            <input type="text" name="twilio_sid" placeholder="Twilio Account SID" required>
+            <input type="text" name="twilio_auth_token" placeholder="Twilio Auth Token" required>
+            <input type="text" name="twilio_phone" placeholder="Twilio Phone Number" required>
+        </div>
+        <div id="textbeltInputs" style="display: none;">
+            <input type="text" name="textbelt_api_key" placeholder="Textbelt API Key" required>
+        </div>
+        <button type="submit">Submit Messaging Service</button>
+    </form>
+
+    <h2>Search GitHub Projects</h2>
+    <form id="githubSearchForm" method="POST" action="/search_github">
+        <input type="text" name="search_term" placeholder="Enter search term..." required>
+        <button type="submit">Search GitHub</button>
+    </form>
+
+    <script>
+        // Voice Recognition
+        function startVoiceRecognition() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById("user-input").value = transcript;
+                sendMessage();
+            };
+        }
+
+        async function sendMessage() {
+            const inputField = document.getElementById("user-input");
+            const userMessage = inputField.value;
+            inputField.value = '';
+            appendMessage("You: " + userMessage);
+
+            let responseMessage = "I'm sorry, I didn't understand that.";
+
+            if (userMessage.toLowerCase().includes("scan networks")) {
+                const response = await fetch('/scan_network', { method: 'POST' });
+                const vulnerabilities = await response.json();
+                responseMessage = "Vulnerabilities found: " + JSON.stringify(vulnerabilities);
+            } else if (userMessage.toLowerCase().includes("deploy exploit")) {
+                const target = prompt("Enter target for exploit deployment:");
+                const response = await fetch('/deploy_exploit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ target })
+                });
+                const result = await response.json();
+                responseMessage = "Exploit deployment result: " + result.status;
+            }
+            appendMessage("Chatbot: " + responseMessage);
+        }
+
+        function appendMessage(message) {
+            const chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML += "<div>" + message + "</div>";
+            chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll
+        }
+
+        async function handleImageUpload() {
+            const file = document.getElementById('image-upload').files[0];
+            const formData = new FormData();
+            formData.append('image', file);
+
+            const response = await fetch('/extract_text_from_image', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            appendMessage("Extracted Text: " + result.text);
+        }
+
+        async function handleDocUpload() {
+            const file = document.getElementById('doc-upload').files[0];
+            const formData = new FormData();
+            formData.append('document', file);
+
+            const response = await fetch('/parse_document', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            appendMessage("Parsed Document Code: " + result.code);
+        }
+
+        function showServiceInputs(value) {
+            document.getElementById("googleVoiceInputs").style.display = value === "1" ? "block" : "none";
+            document.getElementById("twilioInputs").style.display = value === "2" ? "block" : "none";
+            document.getElementById("textbeltInputs").style.display = value === "3" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
