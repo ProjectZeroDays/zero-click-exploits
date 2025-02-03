@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Collaboration</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        button { margin: 5px; padding: 8px 12px; cursor: pointer; }
+        textarea { width: 100%; height: 100px; margin: 5px 0; }
+        pre { border: 1px solid #ccc; padding: 10px; overflow-x: auto; }
+        .error { color: red; }
+        .success { color: green; }
+        .loading { opacity: 0.6; pointer-events: none; }
+        .form-group { margin-bottom: 10px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        button.loading::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin: -8px 0 0 -8px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Collaboration</h1>
+
+    <div class="form-group">
+        <label for="roomId">Room ID:</label>
+        <input type="text" id="roomId" placeholder="Enter Room ID" required>
+        <button onclick="joinRoom()">Join Room</button>
+    </div>
+
+    <h2>Collaborative Editor</h2>
+    <textarea id="editor" placeholder="Start typing..."></textarea>
+
+    <script>
+        const roomIdInput = document.getElementById('roomId');
+        const editor = document.getElementById('editor');
+        let roomId = '';
+        let peerConnection;
+        let dataChannel;
+
+        function joinRoom() {
+            roomId = roomIdInput.value;
+            if (!roomId) {
+                alert('Room ID is required.');
+                return;
+            }
+            setupWebRTC();
+        }
+
+        function setupWebRTC() {
+            peerConnection = new RTCPeerConnection();
+            dataChannel = peerConnection.createDataChannel('collaboration');
+
+            dataChannel.onopen = () => {
+                console.log('Data channel is open');
+            };
+
+            dataChannel.onmessage = (event) => {
+                editor.value = event.data;
+            };
+
+            editor.addEventListener('input', () => {
+                if (dataChannel.readyState === 'open') {
+                    dataChannel.send(editor.value);
+                }
+            });
+
+            peerConnection.onicecandidate = (event) => {
+                if (event.candidate) {
+                    sendMessage(roomId, JSON.stringify({ candidate: event.candidate }));
+                }
+            };
+
+            peerConnection.createOffer().then((offer) => {
+                return peerConnection.setLocalDescription(offer);
+            }).then(() => {
+                sendMessage(roomId, JSON.stringify({ offer: peerConnection.localDescription }));
+            });
+
+            listenForMessages();
+        }
+
+        function sendMessage(roomId, message) {
+            // Implement your signaling server logic here
+            console.log(`Sending message to room ${roomId}: ${message}`);
+        }
+
+        function listenForMessages() {
+            // Implement your signaling server logic here
+            console.log(`Listening for messages in room ${roomId}`);
+        }
+    </script>
+</body>
+</html>
