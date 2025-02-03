@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenmap Scan App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-roboto">
+    <div class="container mx-auto p-4">
+        <header class="flex justify-between items-center py-4">
+            <h1 class="text-3xl font-bold text-gray-800">Zenmap Scan App</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Home</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Scans</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Reports</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Run a New Scan</h2>
+            <form class="space-y-4">
+                <div>
+                    <label for="target" class="block text-gray-700">Target:</label>
+                    <input type="text" id="target" name="target" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Enter target IP or domain">
+                </div>
+                <div>
+                    <label for="scan-type" class="block text-gray-700">Scan Type:</label>
+                    <select id="scan-type" name="scan-type" class="w-full p-2 border border-gray-300 rounded mt-1">
+                        <option value="intense">Intense Scan</option>
+                        <option value="quick">Quick Scan</option>
+                        <option value="ping">Ping Scan</option>
+                        <option value="traceroute">Traceroute</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="options" class="block text-gray-700">Options:</label>
+                    <textarea id="options" name="options" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Enter additional options"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Run Scan</button>
+            </form>
+        </main>
+
+        <section class="mt-8">
+            <h2 class="text-2xl font-semibold mb-4">Recent Scans</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <ul class="space-y-4">
+                    <li class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-800">Scan #1</h3>
+                            <p class="text-gray-600">Target: 192.168.1.1</p>
+                            <p class="text-gray-600">Type: Intense Scan</p>
+                        </div>
+                        <button class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">View Report</button>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-800">Scan #2</h3>
+                            <p class="text-gray-600">Target: example.com</p>
+                            <p class="text-gray-600">Type: Quick Scan</p>
+                        </div>
+                        <button class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">View Report</button>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-800">Scan #3</h3>
+                            <p class="text-gray-600">Target: 10.0.0.1</p>
+                            <p class="text-gray-600">Type: Ping Scan</p>
+                        </div>
+                        <button class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">View Report</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mt-8">
+            <h2 class="text-2xl font-semibold mb-4">Reports</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <ul class="space-y-4">
+                    <li class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-800">Report #1</h3>
+                            <p class="text-gray-600">Target: 192.168.1.1</p>
+                            <p class="text-gray-600">Date: 2023-10-01</p>
+                        </div
