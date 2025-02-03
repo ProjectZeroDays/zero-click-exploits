@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        button { margin: 5px; padding: 8px 12px; cursor: pointer; }
+        .form-group { margin-bottom: 10px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        .checklist { list-style-type: none; padding: 0; }
+        .checklist li { margin-bottom: 10px; }
+        .checklist li.completed { text-decoration: line-through; color: green; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Onboarding Page</h1>
+
+    <h2>Interactive Tutorials</h2>
+    <div class="form-group">
+        <button onclick="startTutorial()">Start Tutorial</button>
+    </div>
+
+    <h2>Onboarding Checklist</h2>
+    <ul class="checklist" id="onboardingChecklist">
+        <li id="task1">Run your first code</li>
+        <li id="task2">Use the AI chat</li>
+        <li id="task3">Explore the dashboard</li>
+    </ul>
+
+    <script>
+        const onboardingChecklist = [
+            { task: "Run your first code", completed: false },
+            { task: "Use the AI chat", completed: false },
+            { task: "Explore the dashboard", completed: false },
+        ];
+
+        function startTutorial() {
+            const steps = [
+                { title: "Welcome", content: "Let’s get started with the basics!" },
+                { title: "Code Editor", content: "This is where you write and edit your code." },
+                { title: "AI Chat", content: "Ask the AI for help or suggestions." },
+            ];
+            steps.forEach((step, index) => {
+                showTutorialStep(step, index);
+            });
+        }
+
+        function showTutorialStep(step, index) {
+            alert(`${step.title}: ${step.content}`);
+            if (index === steps.length - 1) {
+                completeTask(0); // Mark the first task as completed
+            }
+        }
+
+        function completeTask(taskIndex) {
+            onboardingChecklist[taskIndex].completed = true;
+            updateChecklistUI();
+        }
+
+        function updateChecklistUI() {
+            const checklistElement = document.getElementById('onboardingChecklist');
+            checklistElement.innerHTML = '';
+            onboardingChecklist.forEach((task, index) => {
+                const taskElement = document.createElement('li');
+                taskElement.textContent = task.task;
+                if (task.completed) {
+                    taskElement.classList.add('completed');
+                }
+                checklistElement.appendChild(taskElement);
+            });
+        }
+
+        updateChecklistUI();
+    </script>
+</body>
+</html>
