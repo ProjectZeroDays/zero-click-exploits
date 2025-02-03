@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Passkey - Cybersecurity Framework</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .passkey-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .passkey-container h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="passkey-container">
+        <h2>Add Device Passkey</h2>
+        <form action="/add_device_passkey" method="POST">
+            <div class="form-group">
+                <label for="deviceName">Device Name</label>
+                <input type="text" id="deviceName" name="deviceName" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="devicePasskey">Device Passkey</label>
+                <input type="text" id="devicePasskey" name="devicePasskey" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add Passkey</button>
+        </form>
+    </div>
+
+</body>
+</html>
