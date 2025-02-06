@@ -1,0 +1,14 @@
+
+lock() {
+	local lock="/run/`basename $1`.lock"
+	exec 9>$lock
+	if ! flock -n 9; then exit 1; fi
+}
+
+show() {
+	if [ ! -d /opt/drivebadger/external/ext-mobile-drivers ]; then
+		logger -p user.info -t "badger-event[$$]" -- "$1 [$2]"
+	else
+		/opt/drivebadger/external/ext-mobile-drivers/event.sh "$1" "$2"
+	fi
+}
