@@ -1,0 +1,139 @@
+<html>
+<head>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a2e;
+      color: #ffffff;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 20px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 12px;
+      width: 12px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #7f5af0;
+    }
+    input:checked + .slider:before {
+      transform: translateX(14px);
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="p-4">
+    <div class="bg-gray-900 p-4 rounded-lg max-w-md mx-auto">
+      <div class="flex justify-between items-center mb-4">
+        <div class="text-lg font-semibold">Settings</div>
+        <i class="fas fa-times cursor-pointer"></i>
+      </div>
+      <div class="flex justify-between mb-4">
+        <div class="text-gray-400 cursor-pointer">General</div>
+        <div class="text-white cursor-pointer">Connection</div>
+        <div class="text-gray-400 cursor-pointer">Advanced</div>
+      </div>
+      <div class="space-y-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <span>Protocol</span>
+            <i class="fas fa-info-circle text-gray-400 ml-2"></i>
+          </div>
+          <select class="bg-gray-800 text-white rounded p-1">
+            <option>Smart (suggested)</option>
+          </select>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <span>VPN Accelerator</span>
+            <i class="fas fa-info-circle text-gray-400 ml-2"></i>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="pl-4">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <span>Auto Reconnection</span>
+              <i class="fas fa-info-circle text-gray-400 ml-2"></i>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <div class="flex items-center">
+              <span>Reconnection notifications</span>
+              <i class="fas fa-info-circle text-gray-400 ml-2"></i>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <span>Moderate NAT</span>
+            <i class="fas fa-info-circle text-gray-400 ml-2"></i>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <span>Custom DNS Servers</span>
+            <i class="fas fa-info-circle text-gray-400 ml-2"></i>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const { createApp, ref } = Vue
+    createApp({
+      setup() {
+        return {}
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
