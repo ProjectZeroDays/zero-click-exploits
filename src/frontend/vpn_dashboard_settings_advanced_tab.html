@@ -1,0 +1,122 @@
+<html>
+<head>
+  <title>Settings</title>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 20px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 12px;
+      width: 12px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #6366F1;
+    }
+    input:checked + .slider:before {
+      transform: translateX(14px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <div id="app" class="p-4">
+    <div class="max-w-md mx-auto bg-gray-800 rounded-lg shadow-lg p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h1 class="text-lg font-semibold">Settings</h1>
+        <button class="text-gray-400 hover:text-gray-200">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="flex space-x-4 mb-6">
+        <button class="text-gray-400 hover:text-gray-200">General</button>
+        <button class="text-gray-400 hover:text-gray-200">Connection</button>
+        <button class="text-white font-semibold">Advanced</button>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold mb-2">Port Forwarding</h2>
+        <p class="text-gray-400 text-sm mb-4">Speed up your torrenting and online gaming by allowing supported local apps to be reachable from the internet. <a href="#" class="text-blue-500">Learn more</a></p>
+        <div class="flex justify-between items-center mb-4">
+          <span>Port Forwarding shortcut <i class="fas fa-info-circle text-gray-400 ml-1"></i></span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <span>Port Forwarding notifications <i class="fas fa-info-circle text-gray-400 ml-1"></i></span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <span>OpenVPN Network driver <i class="fas fa-info-circle text-gray-400 ml-1"></i></span>
+          <select class="bg-gray-700 text-white rounded px-2 py-1">
+            <option>TUN adapter</option>
+          </select>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <span>DNS Leak Protection <i class="fas fa-info-circle text-gray-400 ml-1"></i></span>
+          <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <span>Allow Alternative Routing <i class="fas fa-info-circle text-gray-400 ml-1"></i></span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <span>IPv6 Leak Protection <i class="fas fa-info-circle text-gray-400 ml-1"></i></span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const { createApp, ref } = Vue
+    createApp({
+      setup() {
+        return {}
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

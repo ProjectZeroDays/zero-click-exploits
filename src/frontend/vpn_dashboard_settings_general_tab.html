@@ -1,0 +1,166 @@
+<html>
+ <head>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      background-color: #1E1E2D;
+      color: #FFFFFF;
+      font-family: 'Arial', sans-serif;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 20px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 12px;
+      width: 12px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #7A64FF;
+    }
+    input:checked + .slider:before {
+      transform: translateX(14px);
+    }
+  </style>
+ </head>
+ <body>
+  <div class="p-4" id="app">
+   <div class="bg-gray-900 rounded-lg shadow-lg p-4">
+    <div class="flex justify-between items-center border-b border-gray-700 pb-2 mb-4">
+     <div class="flex items-center">
+      <img alt="App Icon" class="mr-2" height="24" src="https://storage.googleapis.com/a1aa/image/bsT0Mhly1f5soexYTkZRTIZvoDbe9eQllh36DPA4zRQ.jpg" width="24"/>
+      <span class="text-lg font-semibold">
+       Settings
+      </span>
+     </div>
+     <button class="text-gray-400 hover:text-gray-200">
+      <i class="fas fa-times">
+      </i>
+     </button>
+    </div>
+    <div class="flex space-x-4 mb-4">
+     <button class="text-white border-b-2 border-blue-500 pb-1">
+      General
+     </button>
+     <button class="text-gray-400 hover:text-gray-200">
+      Connection
+     </button>
+     <button class="text-gray-400 hover:text-gray-200">
+      Advanced
+     </button>
+    </div>
+    <div>
+     <div class="flex justify-between items-center mb-4">
+      <span>
+       Language
+      </span>
+      <select class="bg-gray-800 text-white rounded px-2 py-1">
+       <option>
+        English
+       </option>
+      </select>
+     </div>
+     <div class="flex justify-between items-center mb-4">
+      <span>
+       Start Minimized
+      </span>
+      <select class="bg-gray-800 text-white rounded px-2 py-1">
+       <option>
+        to Taskbar
+       </option>
+      </select>
+     </div>
+     <div class="flex justify-between items-center mb-4">
+      <span>
+       Quick Connect
+       <i class="fas fa-info-circle text-gray-400 ml-1">
+       </i>
+      </span>
+      <select class="bg-gray-800 text-white rounded px-2 py-1">
+       <option>
+        ⚡ Fastest
+       </option>
+      </select>
+     </div>
+     <div class="flex justify-between items-center mb-4">
+      <span>
+       Start on boot
+      </span>
+      <label class="toggle-switch">
+       <input checked="" type="checkbox"/>
+       <span class="slider">
+       </span>
+      </label>
+     </div>
+     <div class="flex justify-between items-center mb-4">
+      <span>
+       Connect on app start
+       <i class="fas fa-info-circle text-gray-400 ml-1">
+       </i>
+      </span>
+      <label class="toggle-switch">
+       <input checked="" type="checkbox"/>
+       <span class="slider">
+       </span>
+      </label>
+     </div>
+     <div class="flex justify-between items-center mb-4">
+      <span>
+       Show Notifications
+      </span>
+      <label class="toggle-switch">
+       <input checked="" type="checkbox"/>
+       <span class="slider">
+       </span>
+      </label>
+     </div>
+     <div class="flex justify-between items-center mb-4">
+      <span>
+       Early Access
+       <i class="fas fa-info-circle text-gray-400 ml-1">
+       </i>
+      </span>
+      <label class="toggle-switch">
+       <input type="checkbox"/>
+       <span class="slider">
+       </span>
+      </label>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+   const { createApp } = Vue
+    createApp({}).mount('#app')
+  </script>
+ </body>
+</html>

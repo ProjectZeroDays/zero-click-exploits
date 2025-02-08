@@ -1,0 +1,109 @@
+<html>
+ <head>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js">
+  </script>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        font-family: 'Arial', sans-serif;
+      }
+  </style>
+ </head>
+ <body>
+  <div class="h-screen flex flex-col justify-between" id="app">
+   <div class="p-4 flex items-center justify-between border-b border-gray-700">
+    <div class="flex items-center space-x-2">
+     <i class="fas fa-home text-white">
+     </i>
+     <input class="bg-gray-800 text-gray-400 rounded-full px-4 py-1 text-sm" readonly="" type="text" value="venice.ai/chat/XZi"/>
+    </div>
+    <div class="flex items-center space-x-4">
+     <i class="fas fa-share-alt text-white">
+     </i>
+     <i class="fas fa-ellipsis-v text-white">
+     </i>
+    </div>
+   </div>
+   <div class="flex-1 p-4">
+    <div class="flex items-center justify-between mb-4">
+     <div class="flex items-center space-x-2">
+      <i class="fas fa-bars text-white">
+      </i>
+      <span class="text-gray-400">
+       Models
+      </span>
+      <i class="fas fa-chevron-down text-gray-400">
+      </i>
+     </div>
+     <div class="flex items-center space-x-4">
+      <i class="fas fa-bell text-gray-400">
+      </i>
+      <i class="fas fa-sliders-h text-gray-400">
+      </i>
+     </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded-lg">
+     <div class="flex items-center space-x-2 mb-2">
+      <img alt="Venice logo" class="w-8 h-8 rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/4xVJ5FsqFBLQN5Hr3K53OMOXKH2qbqWBeB05igqHqckSfkIUA.jpg" width="32"/>
+      <span class="font-bold text-white">
+       Venice
+      </span>
+      <span class="text-gray-400 text-sm">
+       2.84 sec • Llama 3.3 70B
+      </span>
+     </div>
+     <p class="text-white mb-4">
+      Hello. What's on your mind? Want to talk about something or ask a question?
+     </p>
+     <div class="flex space-x-4 text-gray-400">
+      <i class="fas fa-copy">
+      </i>
+      <i class="fas fa-share">
+      </i>
+      <i class="fas fa-trash">
+      </i>
+      <i class="fas fa-flag">
+      </i>
+      <i class="fas fa-sync">
+      </i>
+      <i class="fas fa-sliders-h">
+      </i>
+      <i class="fas fa-ellipsis-h">
+      </i>
+     </div>
+    </div>
+   </div>
+   <div class="p-4 border-t border-gray-700">
+    <div class="flex items-center space-x-2">
+     <i class="fas fa-paperclip text-gray-400">
+     </i>
+     <input class="flex-1 bg-gray-800 text-gray-400 rounded-full px-4 py-2" placeholder="Describe what you want to build..." type="text"/>
+     <i class="fas fa-code text-blue-500">
+     </i>
+     <i class="fas fa-paper-plane text-blue-500">
+     </i>
+    </div>
+    <div class="text-center mt-2">
+     <a class="text-blue-500" href="#">
+      Upgrade to Pro
+     </a>
+    </div>
+   </div>
+  </div>
+  <script>
+   const { createApp, ref } = Vue
+      createApp({
+        setup() {
+          const message = ref('Hello vue!')
+          return {
+            message
+          }
+        }
+      }).mount('#app')
+  </script>
+ </body>
+</html>
