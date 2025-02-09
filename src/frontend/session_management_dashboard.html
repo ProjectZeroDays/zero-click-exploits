@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Session Management Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Monitor and Manage User Sessions</h2>
+            <button id="start-session" class="primary">Start Session</button>
+            <button id="end-session" class="danger">End Session</button>
+            <table id="session-data">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>User</th>
+                        <th>Session ID</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Session data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

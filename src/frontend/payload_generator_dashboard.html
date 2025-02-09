@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payload Generator Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Payload Generator Dashboard</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="main_dashboard.html">Main Dashboard</a></li>
+            <li><a href="no_ip_ddns_management_dashboard.html">No-IP DDNS Management</a></li>
+            <li><a href="brute_forcing_files_dashboard.html">Brute Forcing Files</a></li>
+            <li><a href="dark_web_browser_dashboard.html">Dark Web Browser</a></li>
+            <li><a href="encryption_decryption_dashboard.html">Encryption/Decryption</a></li>
+            <li><a href="encoding_decoding_dashboard.html">Encoding/Decoding</a></li>
+            <li><a href="ai_training_dashboard.html">AI Training</a></li>
+            <li><a href="incident_response_dashboard.html">Incident Response</a></li>
+            <li><a href="decon_management_dashboard.html">Decon Management</a></li>
+            <li><a href="payloads_management_dashboard.html">Payloads Management</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Payload Generator</h2>
+            <form id="payloadGeneratorForm">
+                <label for="payloadType">Select Payload Type:</label>
+                <select id="payloadType" name="payloadType" required>
+                    <option value="reverse_shell">Reverse Shell</option>
+                    <option value="keylogger">Keylogger</option>
+                    <option value="ransomware">Ransomware</option>
+                </select>
+                <label for="targetOS">Select Target OS:</label>
+                <select id="targetOS" name="targetOS" required>
+                    <option value="windows">Windows</option>
+                    <option value="linux">Linux</option>
+                    <option value="macos">macOS</option>
+                </select>
+                <button type="submit">Generate Payload</button>
+            </form>
+        </section>
+        <section>
+            <h2>Generated Payload</h2>
+            <div id="generatedPayload"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Zero Click Exploits. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

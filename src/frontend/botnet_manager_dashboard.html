@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botnet Manager Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Botnet Manager Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Manage Botnets and Devices</h2>
+            <button id="create-botnet" class="primary">Create Botnet</button>
+            <button id="add-device" class="primary">Add Device</button>
+            <button id="remove-device" class="danger">Remove Device</button>
+            <button id="send-command" class="primary">Send Command</button>
+            <table id="botnet-data">
+                <thead>
+                    <tr>
+                        <th>Botnet ID</th>
+                        <th>Botnet Name</th>
+                        <th>Devices</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Botnet data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

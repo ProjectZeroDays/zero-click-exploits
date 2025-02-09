@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zero-click-exploits
+  labels:
+    app: zero-click-exploits
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: zero-click-exploits
+  template:
+    metadata:
+      labels:
+        app: zero-click-exploits
+    spec:
+      containers:
+      - name: zero-click-exploits
+        image: user/repository:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: HUGGINGFACE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: huggingface-secrets
+              key: api-key
+        - name: HUGGINGFACE_PROJECT_NAME
+          valueFrom:
+            secretKeyRef:
+              name: huggingface-secrets
+              key: project-name
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: database-url
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: secret-key
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: api-key
+        - name: API_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: api-secret
+        - name: AI_VULNERABILITY_SCANNING_ENABLED
+          value: "true"
+        - name: AI_EXPLOIT_MODIFICATIONS_ENABLED
+          value: "true"
+        - name: MFA_ENABLED
+          value: "true"
+        - name: ENCRYPTION_METHOD
+          value: "AES-256"
+        - name: BLOCKCHAIN_LOGGING_ENABLED
+          value: "true"
+        - name: BLOCKCHAIN_LOGGING_NODE
+          value: "http://localhost:8545"
+        - name: ADVANCED_ENCRYPTION_METHODS
+          value: "AES-256,ChaCha20,RSA"
+        - name: SECURITY_AUDITS_ENABLED
+          value: "true"
+        - name: PENETRATION_TESTING_ENABLED
+          value: "true"
+        - name: IPS_ENABLED
+          value: "false"
+        - name: IPS_CONFIG_PATH
+          value: "/etc/ips/config.yaml"
+      restartPolicy: Always

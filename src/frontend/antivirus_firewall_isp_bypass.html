@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antivirus, Firewall, and ISP Bypass Mechanisms</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Antivirus, Firewall, and ISP Bypass Mechanisms</h1>
+    </header>
+    <main>
+        <section id="bypass-config">
+            <h2>Configure Bypass Mechanisms</h2>
+            <form id="bypass-form">
+                <label for="target-system">Target System:</label>
+                <input type="text" id="target-system" name="target-system" required>
+                
+                <label for="bypass-type">Bypass Type:</label>
+                <select id="bypass-type" name="bypass-type" required>
+                    <option value="antivirus">Antivirus</option>
+                    <option value="firewall">Firewall</option>
+                    <option value="isp">ISP</option>
+                </select>
+                
+                <label for="bypass-method">Bypass Method:</label>
+                <input type="text" id="bypass-method" name="bypass-method" required>
+                
+                <button type="submit">Execute Bypass</button>
+            </form>
+        </section>
+        <section id="bypass-results">
+            <h2>Bypass Results</h2>
+            <div id="results-container"></div>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('bypass-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const targetSystem = document.getElementById('target-system').value;
+            const bypassType = document.getElementById('bypass-type').value;
+            const bypassMethod = document.getElementById('bypass-method').value;
+            
+            const response = await fetch('/bypass_mechanisms', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-Key': 'your-api-key'
+                },
+                body: JSON.stringify({
+                    target_system: targetSystem,
+                    bypass_type: bypassType,
+                    bypass_method: bypassMethod
+                })
+            });
+            
+            const result = await response.json();
+            document.getElementById('results-container').innerText = JSON.stringify(result, null, 2);
+        });
+    </script>
+</body>
+</html>

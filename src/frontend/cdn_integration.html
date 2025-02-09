@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDN Integration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CDN Integration</h1>
+    </header>
+    <main>
+        <section id="cdn-configuration">
+            <h2>Configure CDN</h2>
+            <form id="cdn-form">
+                <label for="cdn-provider">CDN Provider:</label>
+                <input type="text" id="cdn-provider" name="cdn-provider" required>
+                <label for="cdn-url">CDN URL:</label>
+                <input type="url" id="cdn-url" name="cdn-url" required>
+                <button type="submit">Integrate CDN</button>
+            </form>
+        </section>
+        <section id="cdn-results">
+            <h2>CDN Integration Results</h2>
+            <table id="cdn-results-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>CDN Provider</th>
+                        <th>Latency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Results will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="cdn_integration.js"></script>
+</body>
+</html>

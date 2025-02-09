@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Analytics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Predictive Analytics Dashboard</h1>
+    </header>
+    <main>
+        <section id="predictive-analytics">
+            <h2>Predictive Analytics</h2>
+            <button id="run-prediction">Run Prediction</button>
+            <table id="prediction-table">
+                <thead>
+                    <tr>
+                        <th>Data Point</th>
+                        <th>Prediction</th>
+                        <th>Confidence</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Prediction data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('run-prediction').addEventListener('click', async () => {
+            const response = await fetch('/api/predictions/run');
+            const predictions = await response.json();
+            const tableBody = document.querySelector('#prediction-table tbody');
+            tableBody.innerHTML = '';
+            predictions.forEach(prediction => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${prediction.data_point}</td>
+                    <td>${prediction.prediction}</td>
+                    <td>${prediction.confidence}</td>
+                    <td>${prediction.timestamp}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

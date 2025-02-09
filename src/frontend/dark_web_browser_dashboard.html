@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Web Browser Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dark Web Browser Dashboard</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="main_dashboard.html">Main Dashboard</a></li>
+            <li><a href="no_ip_ddns_management_dashboard.html">No-IP DDNS Management</a></li>
+            <li><a href="brute_forcing_files_dashboard.html">Brute Forcing Files</a></li>
+            <li><a href="payload_generator_dashboard.html">Payload Generator</a></li>
+            <li><a href="encryption_decryption_dashboard.html">Encryption/Decryption</a></li>
+            <li><a href="encoding_decoding_dashboard.html">Encoding/Decoding</a></li>
+            <li><a href="ai_training_dashboard.html">AI Training</a></li>
+            <li><a href="incident_response_dashboard.html">Incident Response</a></li>
+            <li><a href="decon_management_dashboard.html">Decon Management</a></li>
+            <li><a href="payloads_management_dashboard.html">Payloads Management</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Dark Web Browser</h2>
+            <form id="darkWebForm">
+                <label for="urlInput">Enter URL:</label>
+                <input type="text" id="urlInput" name="urlInput" required>
+                <button type="submit">Browse</button>
+            </form>
+        </section>
+        <section>
+            <h2>Results</h2>
+            <div id="results"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Zero Click Exploits. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

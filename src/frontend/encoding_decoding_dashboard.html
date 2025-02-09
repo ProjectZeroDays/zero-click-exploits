@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoding and Decoding Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Encoding and Decoding Dashboard</h1>
+    </header>
+    <main>
+        <section id="encoding">
+            <h2>Encode Text</h2>
+            <form id="encoding-form">
+                <label for="encoding-input">Input:</label>
+                <textarea id="encoding-input" name="encoding-input" rows="4" cols="50"></textarea>
+                <label for="encoding-format">Encoding Format:</label>
+                <select id="encoding-format" name="encoding-format">
+                    <option value="base64">Base64</option>
+                    <option value="hex">Hex</option>
+                    <option value="url">URL</option>
+                </select>
+                <button type="button" onclick="encode()">Encode</button>
+            </form>
+            <div id="encoding-result">
+                <h3>Encoded Output:</h3>
+                <textarea id="encoded-output" rows="4" cols="50" readonly></textarea>
+            </div>
+        </section>
+        <section id="decoding">
+            <h2>Decode Text</h2>
+            <form id="decoding-form">
+                <label for="decoding-input">Input:</label>
+                <textarea id="decoding-input" name="decoding-input" rows="4" cols="50"></textarea>
+                <label for="decoding-format">Decoding Format:</label>
+                <select id="decoding-format" name="decoding-format">
+                    <option value="base64">Base64</option>
+                    <option value="hex">Hex</option>
+                    <option value="url">URL</option>
+                </select>
+                <button type="button" onclick="decode()">Decode</button>
+            </form>
+            <div id="decoding-result">
+                <h3>Decoded Output:</h3>
+                <textarea id="decoded-output" rows="4" cols="50" readonly></textarea>
+            </div>
+        </section>
+    </main>
+    <script src="encoding_decoding.js"></script>
+</body>
+</html>

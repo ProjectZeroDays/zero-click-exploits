@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Intelligence Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Threat Intelligence Dashboard</h1>
+    </header>
+    <main>
+        <section id="threat-intelligence">
+            <h2>Threat Intelligence</h2>
+            <button id="fetch-latest-threats">Fetch Latest Threats</button>
+            <table id="threat-table">
+                <thead>
+                    <tr>
+                        <th>Threat ID</th>
+                        <th>Description</th>
+                        <th>Severity</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Threat data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('fetch-latest-threats').addEventListener('click', async () => {
+            const response = await fetch('/api/threats/latest');
+            const threats = await response.json();
+            const tableBody = document.querySelector('#threat-table tbody');
+            tableBody.innerHTML = '';
+            threats.forEach(threat => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${threat.threat_id}</td>
+                    <td>${threat.description}</td>
+                    <td>${threat.severity}</td>
+                    <td>${threat.timestamp}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>
