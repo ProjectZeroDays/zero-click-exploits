@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts and Notifications Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Alerts and Notifications Dashboard</h1>
+    </header>
+    <main>
+        <section id="alerts-notifications">
+            <h2>Alerts and Notifications</h2>
+            <button id="fetch-latest-alerts">Fetch Latest Alerts</button>
+            <table id="alerts-table">
+                <thead>
+                    <tr>
+                        <th>Alert ID</th>
+                        <th>Description</th>
+                        <th>Severity</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Alert data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('fetch-latest-alerts').addEventListener('click', async () => {
+            const response = await fetch('/api/alerts/latest');
+            const alerts = await response.json();
+            const tableBody = document.querySelector('#alerts-table tbody');
+            tableBody.innerHTML = '';
+            alerts.forEach(alert => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${alert.alert_id}</td>
+                    <td>${alert.description}</td>
+                    <td>${alert.severity}</td>
+                    <td>${alert.timestamp}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

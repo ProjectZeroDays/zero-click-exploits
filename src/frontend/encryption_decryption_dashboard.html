@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption and Decryption Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Encryption and Decryption Dashboard</h1>
+    </header>
+    <main>
+        <section id="encryption">
+            <h2>Encrypt Files/Text</h2>
+            <form id="encryption-form">
+                <label for="encryption-input">Input:</label>
+                <textarea id="encryption-input" name="encryption-input" rows="4" cols="50"></textarea>
+                <label for="encryption-key">Encryption Key:</label>
+                <input type="text" id="encryption-key" name="encryption-key">
+                <button type="button" onclick="encrypt()">Encrypt</button>
+            </form>
+            <div id="encryption-result">
+                <h3>Encrypted Output:</h3>
+                <textarea id="encrypted-output" rows="4" cols="50" readonly></textarea>
+            </div>
+        </section>
+        <section id="decryption">
+            <h2>Decrypt Files/Text</h2>
+            <form id="decryption-form">
+                <label for="decryption-input">Input:</label>
+                <textarea id="decryption-input" name="decryption-input" rows="4" cols="50"></textarea>
+                <label for="decryption-key">Decryption Key:</label>
+                <input type="text" id="decryption-key" name="decryption-key">
+                <button type="button" onclick="decrypt()">Decrypt</button>
+            </form>
+            <div id="decryption-result">
+                <h3>Decrypted Output:</h3>
+                <textarea id="decrypted-output" rows="4" cols="50" readonly></textarea>
+            </div>
+        </section>
+    </main>
+    <script src="encryption_decryption.js"></script>
+</body>
+</html>

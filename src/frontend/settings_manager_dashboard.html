@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Manager Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Settings Manager Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Manage Application Settings</h2>
+            <form id="settings-form">
+                <div class="form-group">
+                    <label for="log-level">Log Level</label>
+                    <select id="log-level" name="log-level">
+                        <option value="DEBUG">DEBUG</option>
+                        <option value="INFO">INFO</option>
+                        <option value="WARNING">WARNING</option>
+                        <option value="ERROR">ERROR</option>
+                        <option value="CRITICAL">CRITICAL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="c2-server-ip">C2 Server IP</label>
+                    <input type="text" id="c2-server-ip" name="c2-server-ip" placeholder="0.0.0.0">
+                </div>
+                <div class="form-group">
+                    <label for="c2-server-port">C2 Server Port</label>
+                    <input type="number" id="c2-server-port" name="c2-server-port" placeholder="1-65535">
+                </div>
+                <div class="form-group">
+                    <label for="defcon-level">DEFCON Level</label>
+                    <input type="number" id="defcon-level" name="defcon-level" placeholder="1-5">
+                </div>
+                <div class="form-group">
+                    <label for="tor-enabled">Enable Tor</label>
+                    <input type="checkbox" id="tor-enabled" name="tor-enabled">
+                </div>
+                <div class="form-group">
+                    <label for="proxy-enabled">Enable Proxy</label>
+                    <input type="checkbox" id="proxy-enabled" name="proxy-enabled">
+                </div>
+                <div class="form-group">
+                    <label for="dns-enabled">Enable DNS</label>
+                    <input type="checkbox" id="dns-enabled" name="dns-enabled">
+                </div>
+                <div class="form-group">
+                    <label for="botnet-enabled">Enable Botnet</label>
+                    <input type="checkbox" id="botnet-enabled" name="botnet-enabled">
+                </div>
+                <div class="form-group">
+                    <label for="allowed-ips">Allowed IPs</label>
+                    <input type="text" id="allowed-ips" name="allowed-ips" placeholder="IP Address">
+                </div>
+                <div class="form-group">
+                    <label for="api-keys">API Keys</label>
+                    <input type="text" id="api-keys" name="api-keys" placeholder="API Key">
+                </div>
+                <div class="form-group">
+                    <label for="modules-enabled">Enabled Modules</label>
+                    <input type="text" id="modules-enabled" name="modules-enabled" placeholder="Module">
+                </div>
+                <div class="form-group">
+                    <label for="rat-port">RAT Port</label>
+                    <input type="number" id="rat-port" name="rat-port" placeholder="1-65535">
+                </div>
+                <div class="form-group">
+                    <label for="rat-host">RAT Host</label>
+                    <input type="text" id="rat-host" name="rat-host" placeholder="0.0.0.0">
+                </div>
+                <div class="form-group">
+                    <label for="wifi-interface">WiFi Interface</label>
+                    <input type="text" id="wifi-interface" name="wifi-interface" placeholder="wlan0">
+                </div>
+                <div class="form-group">
+                    <label for="imsi-interface">IMSI Interface</label>
+                    <input type="text" id="imsi-interface" name="imsi-interface" placeholder="gsm0">
+                </div>
+                <div class="form-group">
+                    <label for="crawler-user-agent">Crawler User Agent</label>
+                    <input type="text" id="crawler-user-agent" name="crawler-user-agent" placeholder="User Agent String">
+                </div>
+                <div class="form-group">
+                    <label for="steganography-key">Steganography Key</label>
+                    <input type="text" id="steganography-key" name="steganography-key" placeholder="Key">
+                </div>
+                <div class="form-group">
+                    <label for="post-exploitation-commands">Post-Exploitation Commands</label>
+                    <input type="text" id="post-exploitation-commands" name="post-exploitation-commands" placeholder="Command">
+                </div>
+                <div class="form-group">
+                    <label for="file-binding-target">File Binding Target</label>
+                    <input type="text" id="file-binding-target" name="file-binding-target" placeholder="Target File">
+                </div>
+                <div class="form-group">
+                    <label for="file-binding-output">File Binding Output</label>
+                    <input type="text" id="file-binding-output" name="file-binding-output" placeholder="Output File">
+                </div>
+                <div class="form-group">
+                    <label for="file-binding-icon">File Binding Icon</label>
+                    <input type="text" id="file-binding-icon" name="file-binding-icon" placeholder="Icon File">
+                </div>
+                <div class="form-group">
+                    <label for="file-binding-payload">File Binding Payload</label>
+                    <input type="text" id="file-binding-payload" name="file-binding-payload" placeholder="Payload File">
+                </div>
+                <button type="submit" class="primary">Save Settings</button>
+            </form>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Manager Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Identity Manager Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Manage and Monitor Identity Operations</h2>
+            <button id="start-tor-session" class="primary">Start Tor Session</button>
+            <button id="stop-tor-session" class="danger">Stop Tor Session</button>
+            <table id="identity-data">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>MAC Address</th>
+                        <th>IP Address</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Identity data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

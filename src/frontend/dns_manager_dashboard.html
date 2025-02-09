@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS Manager Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>DNS Manager Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Manage DNS Resolvers</h2>
+            <button id="add-resolver" class="primary">Add Resolver</button>
+            <button id="remove-resolver" class="danger">Remove Resolver</button>
+            <table id="resolver-list">
+                <thead>
+                    <tr>
+                        <th>Resolver Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Resolver list will be populated here -->
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Manage Blacklist</h2>
+            <button id="add-blacklist" class="primary">Add to Blacklist</button>
+            <button id="remove-blacklist" class="danger">Remove from Blacklist</button>
+            <table id="blacklist">
+                <thead>
+                    <tr>
+                        <th>Domain</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Blacklist will be populated here -->
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Manage Whitelist</h2>
+            <button id="add-whitelist" class="primary">Add to Whitelist</button>
+            <button id="remove-whitelist" class="danger">Remove from Whitelist</button>
+            <table id="whitelist">
+                <thead>
+                    <tr>
+                        <th>Domain</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Whitelist will be populated here -->
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>DNSSEC and HTTPS over DNS</h2>
+            <button id="enable-dnssec" class="primary">Enable DNSSEC</button>
+            <button id="disable-dnssec" class="danger">Disable DNSSEC</button>
+            <button id="enable-https-over-dns" class="primary">Enable HTTPS over DNS</button>
+            <button id="disable-https-over-dns" class="danger">Disable HTTPS over DNS</button>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

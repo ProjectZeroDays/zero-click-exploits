@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Bypass</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>OTP Bypass Mechanisms</h1>
+    </header>
+    <main>
+        <section id="otp-bypass-config">
+            <h2>Configure OTP Bypass</h2>
+            <form id="otp-bypass-form">
+                <label for="target-account">Target Account:</label>
+                <input type="text" id="target-account" name="target-account" required>
+                <button type="submit">Execute OTP Bypass</button>
+            </form>
+        </section>
+        <section id="otp-bypass-results">
+            <h2>OTP Bypass Results</h2>
+            <div id="results-container"></div>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('otp-bypass-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const targetAccount = document.getElementById('target-account').value;
+            const response = await fetch('/otp_bypass', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-Key': 'your-api-key'
+                },
+                body: JSON.stringify({ target_account: targetAccount })
+            });
+            const result = await response.json();
+            document.getElementById('results-container').innerText = JSON.stringify(result, null, 2);
+        });
+    </script>
+</body>
+</html>

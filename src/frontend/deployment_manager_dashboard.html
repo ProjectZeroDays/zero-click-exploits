@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Manager Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Deployment Manager Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Manage and Monitor Deployments</h2>
+            <button id="start-deployment" class="primary">Start Deployment</button>
+            <button id="stop-deployment" class="danger">Stop Deployment</button>
+            <table id="deployment-data">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Deployment Name</th>
+                        <th>Status</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Deployment data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

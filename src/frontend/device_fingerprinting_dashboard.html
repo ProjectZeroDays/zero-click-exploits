@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Fingerprinting Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Device Fingerprinting Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Collect and Analyze Device Fingerprints</h2>
+            <button id="start-fingerprinting" class="primary">Start Fingerprinting</button>
+            <button id="stop-fingerprinting" class="danger">Stop Fingerprinting</button>
+            <table id="device-information">
+                <thead>
+                    <tr>
+                        <th>OS</th>
+                        <th>OS Version</th>
+                        <th>Hostname</th>
+                        <th>IP Address</th>
+                        <th>MAC Address</th>
+                        <th>Carrier</th>
+                        <th>Region</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Device information will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

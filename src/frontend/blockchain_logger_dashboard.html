@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Logger Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Blockchain Logger Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Monitor and Manage Blockchain Logs</h2>
+            <button id="start-logging" class="primary">Start Logging</button>
+            <button id="stop-logging" class="danger">Stop Logging</button>
+            <table id="blockchain-logs">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Timestamp</th>
+                        <th>Data</th>
+                        <th>Hash</th>
+                        <th>Previous Hash</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Blockchain logs will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

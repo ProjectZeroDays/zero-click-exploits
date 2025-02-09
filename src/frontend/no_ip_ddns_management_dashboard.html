@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-IP DDNS Management Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #1e293b;
+        }
+        .header a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.25rem;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #1e293b;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .sidebar a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            padding: 0.5rem 1rem;
+            background-color: #3b82f6;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html">Main Dashboard</a>
+        <div>
+            <i class="fas fa-share-alt text-white"></i>
+            <i class="fas fa-ellipsis-v text-white"></i>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a href="no_ip_ddns_management_dashboard.html">No-IP DDNS Management</a>
+        <a href="brute_forcing_files_dashboard.html">Brute Forcing Files</a>
+        <a href="dark_web_browser_dashboard.html">Dark Web Browser</a>
+        <a href="payload_generator_dashboard.html">Payload Generator</a>
+        <a href="encryption_decryption_dashboard.html">Encryption and Decryption</a>
+        <a href="encoding_decoding_dashboard.html">Encoding and Decoding</a>
+        <a href="ai_training_dashboard.html">AI Training</a>
+        <a href="incident_response_dashboard.html">Incident Response</a>
+        <a href="decon_management_dashboard.html">Decon Management</a>
+        <a href="payloads_management_dashboard.html">Payloads Management</a>
+    </div>
+    <div class="content">
+        <h1>No-IP DDNS Management Dashboard</h1>
+        <form id="ddns-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="hostname">Hostname:</label>
+                <input type="text" id="hostname" name="hostname" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Update DDNS</button>
+            </div>
+        </form>
+        <div id="result"></div>
+    </div>
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <nav class="space-x-4">
+                <a class="hover:underline" href="index.html">Main Dashboard</a>
+                <a class="hover:underline" href="analytics_dashboard.html">Analytics Dashboard</a>
+                <a class="hover:underline" href="c2_panel.html">C2 Panel</a>
+                <a class="hover:underline" href="chatbot_dashboard.html">Chatbot Dashboard</a>
+                <a class="hover:underline" href="feature_pages.html">Feature Pages</a>
+                <a class="hover:underline" href="osint_tools_dashboard.html">OSINT Tools Dashboard</a>
+                <a class="hover:underline" href="rat_dashboard.html">RAT Dashboard</a>
+                <a class="hover:underline" href="rss_dashboard.html">RSS Dashboard</a>
+                <a class="hover:underline" href="shodan_dashboard.html">Shodan Dashboard</a>
+                <a class="hover:underline" href="simplenote_dashboard.html">SimpleNote Dashboard</a>
+                <a class="hover:underline" href="trojan_dashboard.html">Trojan Dashboard</a>
+                <a class="hover:underline" href="zenmap_dashboard.html">Zenmap Dashboard</a>
+            </nav>
+            <p class="text-sm">&copy; 2023 ProjectZeroDays. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('ddns-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const hostname = document.getElementById('hostname').value;
+
+            const response = await fetch('/update_ddns', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password, hostname })
+            });
+
+            const result = await response.json();
+            document.getElementById('result').innerText = result.message;
+        });
+    </script>
+</body>
+</html>

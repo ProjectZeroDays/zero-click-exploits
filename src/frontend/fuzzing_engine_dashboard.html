@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzzing Engine Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Fuzzing Engine Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Monitor and Manage Fuzzing Engine Operations</h2>
+            <button id="start-fuzzing" class="primary">Start Fuzzing</button>
+            <button id="stop-fuzzing" class="danger">Stop Fuzzing</button>
+            <table id="fuzzing-data">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Target</th>
+                        <th>Fuzzing Technique</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fuzzing data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
